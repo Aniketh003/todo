@@ -8,7 +8,7 @@ const getData = () =>{
 }
 
 function App() {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [todos, setTodos] = useState(getData());
 
   const addCompleted = (id) => {
