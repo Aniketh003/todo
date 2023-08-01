@@ -2,14 +2,9 @@ import { React, useEffect, useState } from 'react'
 import './App.css';
 import del from './trash.svg';
 
-const getData = () =>{
-  const storedTodos = JSON.parse(localStorage.getItem("todos" || []))
-  return storedTodos;
-}
-
 function App() {
   const [input, setInput] = useState("");
-  const [todos, setTodos] = useState(getData());
+  const [todos, setTodos] = useState([]);
 
   const addCompleted = (id) => {
     setTodos((prevTodos) => {
@@ -31,10 +26,6 @@ function App() {
   const handleDeleteTodo = (id) =>{
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id))
   }
-
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
 
   return (
     <>
